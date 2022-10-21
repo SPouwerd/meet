@@ -5,12 +5,11 @@
         "name": "{Directory}"
       },
       {
+        "path": "web/",
+        "name": "Web"
+      },      {
         "path": "api/",
         "name": "Api"
-      },
-      {
-        "path": "web/",
-        "name": "Client"
       }
     ],
     "settings": {
