@@ -37,11 +37,11 @@ services:
     image: node:16
     working_dir: /usr/src/app
     command: yarn dev
-    ports: [3010:3010]
+    ports: [3001:3001]
     environment:
       HOST: 0.0.0.0
       PORT: 3001
-      BACKEND_URL: 'http://backend:3000'
+      BACKEND_URL: 'http://api:3000'
     labels:
       traefik.http.routers.web.rule: PathPrefix(`/`)
       traefik.http.services.web.loadbalancer.server.port: 3001
