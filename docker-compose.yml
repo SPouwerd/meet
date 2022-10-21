@@ -30,7 +30,6 @@ services:
     labels:
       traefik.http.routers.api.rule: PathPrefix(`/api`)
       traefik.http.services.api.loadbalancer.server.port: 3000
-
     volumes:
       - ./api:/usr/src/app
 
