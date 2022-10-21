@@ -1,0 +1,60 @@
+{
+    "folders": [
+      {
+        "path": ".",
+        "name": "{Directory}"
+      },
+      {
+        "path": "api/",
+        "name": "Api"
+      },
+      {
+        "path": "web/",
+        "name": "Client"
+      }
+    ],
+    "settings": {
+      "git.ignoreLimitWarning": true,
+      "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+      "editor.formatOnSave": true,
+      "eslint.format.enable": true,
+      "eslint.codeActionsOnSave.mode": "all",
+      "html.completion.attributeDefaultValue": "doublequotes",
+      "javascript.format.enable": true,
+      "editor.linkedEditing": true,
+      "files.eol": "\n",
+  
+      "eslint.validate": [
+        "typescript",
+        "vue"
+      ],
+  
+      "[javascript]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+      },
+      "[typescript]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+      },
+      "gitlens.remotes": [{
+        "name": "Devdroplets Git",
+        "domain": "git.devdroplets.com",
+        "type": "GitLab"
+      }
+    ],
+    "nuxt.isNuxtApp": false
+    },
+    "extensions": {
+      "recommendations": [
+        "Prisma.prisma",
+        "Vue.volar",
+        "eamodio.gitlens",
+        "dbaeumer.vscode-eslint",
+        "aaron-bond.better-comments"
+      ],
+      "unwantedRecommendations": [
+        "octraf.vetur",
+        "vscode.typescript-language-features"
+      ]
+    }
+  }
