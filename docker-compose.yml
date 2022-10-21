@@ -24,8 +24,6 @@ services:
     environment:
       NODE_ENV: development
       DATABASE_URL: postgresql://meet:meet@database:5432/meet?schema=public&connect_timeout=300
-
-      SEARCH_ENGINE_URL: http://search:3002
       REDIS_HOST: redis
       REDIS_PORT: 6379
       JWT_SECRET_KEY: cookies-and-creams
