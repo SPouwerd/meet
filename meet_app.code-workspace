@@ -6,7 +6,7 @@
       },
       {
         "path": "web/",
-        "name": "Client"
+        "name": "Web"
       },      {
         "path": "api/",
         "name": "Api"
