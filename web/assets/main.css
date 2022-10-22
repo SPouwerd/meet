@@ -1,0 +1,5 @@
+/* Set custom root vars */
+:root {
+  --primary: rgb(7, 59, 76);
+  --secondary: rgb(17, 138, 178);
+}
