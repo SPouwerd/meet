@@ -4,6 +4,6 @@ export default {
 };
 </script>
 <template>
-  <h1>template hello</h1>
+  <NavBar />
   <slot />
 </template>

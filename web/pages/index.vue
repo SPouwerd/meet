@@ -4,5 +4,8 @@ export default {
 };
 </script>
 <template>
-  <h1>hello word</h1>
+  <div>
+    <h1>hello word</h1>
+    <NuxtLink to="/login"> testlink</NuxtLink>
+  </div>
 </template>
