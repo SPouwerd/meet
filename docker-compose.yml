@@ -1,6 +1,14 @@
 version: "3"
 
 services:
+
+  traefik:
+    image: traefik:v2.3
+    command: --api.insecure=true --providers.docker
+    ports: ["80:80"]
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
   database:
     image: postgres:15-alpine
     ports: [5432:5432]
@@ -13,10 +21,6 @@ services:
     volumes:
       - database:/volume
 
-  redis:
-    image: redis:6.2
-    ports: [6379:6379]
-
   api:
     image: node:16
     working_dir: /usr/src/app
@@ -25,8 +29,6 @@ services:
     environment:
       NODE_ENV: development
       DATABASE_URL: postgresql://meet:meet@database:5432/meet?schema=public&connect_timeout=300
-      REDIS_HOST: redis
-      REDIS_PORT: 6379
       JWT_SECRET_KEY: cookies-and-creams
     labels:
       traefik.http.routers.api.rule: PathPrefix(`/api`)
