@@ -504,6 +504,16 @@
     vite-plugin-checker "^0.5.1"
     vue-bundle-renderer "^0.4.4"
 
+"@quasar/extras@^1.15.5":
+  version "1.15.5"
+  resolved "https://registry.yarnpkg.com/@quasar/extras/-/extras-1.15.5.tgz#da427761c1c643c2cbe9dfa656817da54acb5686"
+  integrity sha512-JzKKx5/eKAip3X3bZUEJOOWT9NudqjF01gcce6rtyviko49OU4r+ekyJU3QQIKF8ZqnjZ+DpsVpMWBBZnO6hSQ==
+
+"@quasar/vite-plugin@^1.2.3":
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/@quasar/vite-plugin/-/vite-plugin-1.2.3.tgz#7da3653afbf45b11e9c344192fff2b9a7ccf3650"
+  integrity sha512-ErSyY3cHz40GBIQUmqSI8OzzshJM5pLq33Yq3NEtYdWYh1NuIc4C766xkatUdxvhX9sLNnQQZax2ysJ5u7kUJA==
+
 "@rollup/plugin-alias@^4.0.0":
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/@rollup/plugin-alias/-/plugin-alias-4.0.0.tgz#efac7a052098872030592ff3655238d56f70f1a3"
@@ -1135,7 +1145,7 @@ chardet@^0.7.0:
   resolved "https://registry.yarnpkg.com/chardet/-/chardet-0.7.0.tgz#90094849f0937f2eedc2425d0d28a9e5f0cbad9e"
   integrity sha512-mT8iDcrh03qDGRRmoA2hmBJnxpllMR+0/0qlzjqZES6NdiWDcZkCNAk4rPFZ9Q85r27unkiNNg8ZOiwZXBHwcA==
 
-chokidar@^3.5.1, chokidar@^3.5.3:
+"chokidar@>=3.0.0 <4.0.0", chokidar@^3.5.1, chokidar@^3.5.3:
   version "3.5.3"
   resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-3.5.3.tgz#1cf37c8707b932bd1af1ae22c0432e2acd1903bd"
   integrity sha512-Dr3sfKRP6oTcjf2JmUmFJfeVMvXBdegxB0iVQ5eb2V10uFJUCAS8OByZdVAyVb8xXNz3GjjTgj9kLWsZTqE6kw==
@@ -3358,6 +3368,11 @@ prr@~1.0.1:
   resolved "https://registry.yarnpkg.com/prr/-/prr-1.0.1.tgz#d3fc114ba06995a45ec6893f484ceb1d78f5f476"
   integrity sha512-yPw4Sng1gWghHQWj0B3ZggWUm4qVbPwPFcRG8KyxiU7J2OHFSoEHKS+EZ3fv5l1t9CyCiop6l/ZYeWbrgoQejw==
 
+quasar@^2.10.1:
+  version "2.10.1"
+  resolved "https://registry.yarnpkg.com/quasar/-/quasar-2.10.1.tgz#843888c73d997a53b3808d7f4f358b1aee3a91f2"
+  integrity sha512-W0SEbTdfFS4xvO5OyTyuJent+11MpjBJUYLga69ZFigRh7SV6wFpGNfCuxAifM0L83bp4rWrL2KGoIjEoDsjOw==
+
 queue-microtask@^1.2.2:
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/queue-microtask/-/queue-microtask-1.2.3.tgz#4929228bbc724dfac43e0efb058caf7b6cfb6243"
@@ -3561,6 +3576,13 @@ safe-buffer@~5.1.0, safe-buffer@~5.1.1:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
   integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
+
+sass@1.32.*:
+  version "1.32.13"
+  resolved "https://registry.yarnpkg.com/sass/-/sass-1.32.13.tgz#8d29c849e625a415bce71609c7cf95e15f74ed00"
+  integrity sha512-dEgI9nShraqP7cXQH+lEXVf73WOPCse0QlFzSD8k+1TcOxCMwVXfQlr0jtoluZysQOyJGnfr21dLvYKDJq8HkA==
+  dependencies:
+    chokidar ">=3.0.0 <4.0.0"
 
 scule@^0.3.2:
   version "0.3.2"

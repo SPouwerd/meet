@@ -1,3 +1,5 @@
+import { quasar } from '@quasar/vite-plugin'
+
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
     app:{
@@ -17,13 +19,23 @@ export default defineNuxtConfig({
               "script": [],
               "noscript": []
         }},
+    build: {
+      transpile: ['quasar']
+    },
     vite: {
-        server:{
+        define: {
+          'process.env.DEBUG': false,
         },
-        plugins: []
+        plugins: [
+          quasar({
+            sassVariables: 'assets/styles/quasar.variables.sass'
+          })
+        ]
     },
     css: [
         '@/assets/main.css',
+        '@quasar/extras/material-icons/material-icons.css',
+        '~/assets/styles/quasar.sass',
     ],
     typescript: {
         shim: false,
