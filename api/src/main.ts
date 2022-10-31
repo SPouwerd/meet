@@ -4,20 +4,21 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from './app.module';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule, {
+    logger: ['verbose', 'error', 'warn'],
+  });
   //controller validation
   app.useGlobalPipes(new ValidationPipe());
   app.enableCors();
   //openapi
-  const config = new DocumentBuilder()
-    .setTitle('Meet App App API')
-    .setDescription('...')
-    .setVersion('1.0')
+  const SwaggerConfig = new DocumentBuilder()
+    .setTitle('API documentation')
+    .setDescription('Here you have overview and capablities list generated with swagger. ')
+    .setVersion('0.1')
     .addBearerAuth()
-    //.addTag('main-tag')
     .build();
-  const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('api', app, document);
+  const document = SwaggerModule.createDocument(app, SwaggerConfig);
+  SwaggerModule.setup('swagger', app, document);
 
   const port = process.env.PORT || 3000;
 

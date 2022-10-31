@@ -2,7 +2,7 @@ version: "3"
 
 services:
   database:
-    image: postgres:14
+    image: postgres:15-alpine
     ports: [5432:5432]
     environment:
       POSTGRES_DB: meet
@@ -21,6 +21,7 @@ services:
     image: node:16
     working_dir: /usr/src/app
     command: yarn dev
+    ports: [3000:3000] # this exposes api to public
     environment:
       NODE_ENV: development
       DATABASE_URL: postgresql://meet:meet@database:5432/meet?schema=public&connect_timeout=300

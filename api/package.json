@@ -10,6 +10,7 @@
   },
   "scripts": {
     "dev":"nest start --watch --preserveWatchOutput",
+    "seed": "ts-node src/prisma/seed/seed.ts",
     "prebuild": "rimraf dist",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
