@@ -1,12 +1,11 @@
-<script>
-export default {
-  name: "LandingPage",
-};
-</script>
 <template>
-  <div>
-    <h1>hello word</h1>
-    <NuxtLink to="/login"> testlink</NuxtLink>
-    <QBtn></QBtn>
-  </div>
+  <Tutorial />
 </template>
+
+<script lang="ts">
+import Vue from 'vue'
+
+export default Vue.extend({
+  name: 'IndexPage',
+})
+</script>
