@@ -1,0 +1,6 @@
+:root {
+    --blue-light: var(--blue-200);
+    --blue-dark: var(--blue-700);
+    --blue: var(--blue-500);
+    --soft-white: var(--gray-200)
+}
