@@ -5,7 +5,9 @@
 
 <template>
   <ValidationObserver v-slot="{ handleSubmit }">
-    <form @submit.prevent="handleSubmit(onSubmit)">
+    <form
+    @submit.prevent="handleSubmit(sumbitHandler)"
+    >
       <slot />
       <Button type="submit"> 
         {{formButton}}
@@ -19,7 +21,14 @@ export default {
   props: {
     formButton: {
       type: String,
-      default: 'Verzenden'
+      default: 'Bevestig'
+    },
+    sumbitHandler: {
+      type: Function,
+      default: () => {
+        alert(this.$refs.formName)
+
+      }
     }
   },
   data: () => {
@@ -27,9 +36,6 @@ export default {
     }
   },
   methods: {
-    onSubmit () {
-      alert('This form is front-end validated')
-    }
   }
 }
 </script>

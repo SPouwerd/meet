@@ -10,7 +10,7 @@
     class="validation-wrapper"
     >
         <InputText 
-            :id="id"
+            :ref="id"
             :type="type"
             v-model="inputValue" 
             />
