@@ -14,13 +14,16 @@
     ],
     "settings": {
       "git.ignoreLimitWarning": true,
+      "editor.linkedEditing": true,
       "editor.defaultFormatter": "dbaeumer.vscode-eslint",
       "editor.formatOnSave": true,
+      "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+      },
       "eslint.format.enable": true,
       "eslint.codeActionsOnSave.mode": "all",
       "html.completion.attributeDefaultValue": "doublequotes",
       "javascript.format.enable": true,
-      "editor.linkedEditing": true,
       "files.eol": "\n",
   
       "eslint.validate": [
