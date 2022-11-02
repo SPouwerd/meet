@@ -6,7 +6,7 @@ async function main() {
     data: {
       email: 'meet@gmail.com',
       password: '$2b$10$VEAWku9L2Hkdt24nRjf7xOLbKo1CNk0qMWaLEZdeMpLjlk7tujWcO',
-      name: 'qwerty',
+      username: 'qwerty',
       roles: 'Admin',
     },
   });

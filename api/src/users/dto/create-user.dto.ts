@@ -20,8 +20,5 @@ export class CreateUserDto {
   password: string;
   @IsNotEmpty()
   @ApiProperty()
-  name: string;
-  @ApiProperty()
-  @IsEnum(Role)
-  roles: Role;
+  username: string;
 }

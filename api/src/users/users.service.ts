@@ -27,8 +27,8 @@ export class UsersService {
         data: {
           email: userDto.email,
           password: userDto.password,
-          name: userDto.name,
-          roles: userDto.roles,
+          username: userDto.username,
+          roles: 'Admin',
         },
       });
       return result;
@@ -45,7 +45,7 @@ export class UsersService {
   }
 
   async findOne(id) {
-    console.log('iddddddddddd', id);
+    console.log('UserID lookup...', id);
 
     const result = await this.prisma.user.findFirst({
       where: {
@@ -57,7 +57,7 @@ export class UsersService {
       },
     });
     if (result) {
-      console.log('resultttttt', result);
+      console.log('Found user with ID', result);
 
       return result;
     } else {
@@ -98,7 +98,7 @@ export class UsersService {
   async findOneByName(name: string) {
     const result = await this.prisma.user.findFirst({
       where: {
-        name: name,
+        username: name,
       },
       include: {
         profile: true,
@@ -130,7 +130,7 @@ export class UsersService {
         },
         data: {
           password: updateUserDto.password,
-          name: updateUserDto.name,
+          username: updateUserDto.username,
         },
       });
       return result;

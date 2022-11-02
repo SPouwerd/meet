@@ -1,7 +1,9 @@
-import { ValidationPipe } from '@nestjs/common';
+import { ValidationPipe, Logger } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from './app.module';
+
+const logger = new Logger('main');
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, {
@@ -13,7 +15,9 @@ async function bootstrap() {
   //openapi
   const SwaggerConfig = new DocumentBuilder()
     .setTitle('API documentation')
-    .setDescription('Here you have overview and capablities list generated with swagger. ')
+    .setDescription(
+      'Here you have overview and capablities list generated with swagger. ',
+    )
     .setVersion('0.1')
     .addBearerAuth()
     .build();
@@ -22,8 +26,12 @@ async function bootstrap() {
 
   const port = process.env.PORT || 3000;
 
-  await app.listen(port, '0.0.0.0', function () {
-    console.log('Server started.......');
-  });
+  if (require.main === module) {
+    const port = process.env.SERVER_PORT || 3000;
+    logger.log(
+      `Starting server on port: ${port} in ${process.env.NODE_ENV} mode`,
+    );
+    await app.listen(port);
+  }
 }
 bootstrap();

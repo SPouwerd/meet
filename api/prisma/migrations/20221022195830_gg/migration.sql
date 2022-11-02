@@ -6,7 +6,7 @@ CREATE TABLE "User" (
     "id" SERIAL NOT NULL,
     "email" TEXT NOT NULL,
     "password" TEXT NOT NULL,
-    "name" TEXT,
+    "username" TEXT,
     "roles" "Role" NOT NULL,
 
     CONSTRAINT "User_pkey" PRIMARY KEY ("id")

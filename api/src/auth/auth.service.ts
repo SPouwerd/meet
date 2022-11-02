@@ -24,7 +24,7 @@ export class AuthService {
     const result = await this.prisma.user.findFirst({
       where: { email: loginDto.email },
     });
-    console.log('result', result);
+    console.log('email does exits in database');
 
     //then validating password after hashing
     const hash = await this.passwordservice.comparePassword(
@@ -34,13 +34,9 @@ export class AuthService {
     console.log('hash =', hash);
     //user logging in
     if (hash) {
-      const obj = {
-        user: result,
-        message: 'user logged in successfully',
-      };
       return this.signinUser(
         result.id,
-        result.name,
+        result.username,
         result.email,
         result.roles,
       );
