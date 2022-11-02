@@ -18,7 +18,7 @@ import { ApiBearerAuth, ApiCreatedResponse, ApiTags } from '@nestjs/swagger';
 export class ProfileController {
   constructor(private readonly profileService: ProfileService) {}
 
-  @Post('create/:userId')
+  @Post('/:userId')
   @ApiCreatedResponse({
     description: 'Profile created successfully',
     status: HttpStatus.CREATED,
@@ -30,17 +30,17 @@ export class ProfileController {
     return await this.profileService.create(createProfileDto, +userId);
   }
 
-  @Get('findallProfiles')
+  @Get()
   findAll() {
     return this.profileService.findAll();
   }
 
-  @Get('findProfile/:id')
+  @Get('/:id')
   findOne(@Param('id') id: string) {
     return this.profileService.findOne(+id);
   }
 
-  @Patch('updateProfile/:id')
+  @Patch('/:id')
   async update(
     @Param('id') id: string,
     @Body() updateProfileDto: UpdateProfileDto,
@@ -48,8 +48,8 @@ export class ProfileController {
     return await this.profileService.update(+id, updateProfileDto);
   }
 
-  @Delete('deleteProfile/:id')
-  remove(@Param('id') id: string) {
-    return this.profileService.remove(+id);
-  }
+  // @Delete('/:id')
+  // remove(@Param('id') id: string) {
+  //   return this.profileService.remove(+id);
+  // }
 }

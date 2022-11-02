@@ -15,12 +15,12 @@ import { UpdateEventDto } from './dto/update-event.dto';
 import { ApiBearerAuth, ApiCreatedResponse, ApiTags } from '@nestjs/swagger';
 import { RolesGuard } from 'src/auth/guards/roles.guard';
 @ApiBearerAuth()
-@ApiTags('events')
-@Controller('events')
+@ApiTags('event')
+@Controller('event')
 export class EventsController {
   constructor(private readonly eventsService: EventsService) {}
 
-  @Post('create/:userId')
+  @Post('/:userId')
   @ApiCreatedResponse({
     description: 'Profile created successfully',
     status: HttpStatus.CREATED,
@@ -32,17 +32,17 @@ export class EventsController {
     return this.eventsService.create(createEventDto, +userId);
   }
 
-  @Get('getallEvents')
+  @Get('')
   async findAll() {
     return await this.eventsService.findAll();
   }
 
-  @Get('getOneEvent/:id')
+  @Get('/:id')
   findOne(@Param('id') id: string) {
     return this.eventsService.findOne(+id);
   }
 
-  @Patch('updateEvent/:id')
+  @Patch('/:id')
   async update(
     @Param('id') id: string,
     @Body() updateEventDto: UpdateEventDto,
@@ -50,8 +50,8 @@ export class EventsController {
     return await this.eventsService.update(+id, updateEventDto);
   }
 
-  @Delete('deleteEvent/:id')
-  remove(@Param('id') id: string) {
-    return this.eventsService.remove(+id);
-  }
+  // @Delete('/:id')
+  // remove(@Param('id') id: string) {
+  //   return this.eventsService.remove(+id);
+  // }
 }

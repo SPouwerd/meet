@@ -20,14 +20,14 @@ import { Role } from '@prisma/client';
 import { RolesGuard } from 'src/auth/guards/roles.guard';
 
 @ApiBearerAuth()
-@ApiTags('users')
-@Controller('users')
+@ApiTags('user')
+@Controller('user')
 @UseGuards(RolesGuard)
 export class UsersController {
   constructor(private usersService: UsersService) {}
 
   @Public()
-  @Post('signup')
+  @Post()
   @ApiCreatedResponse({
     description: 'User created successfully',
     status: HttpStatus.CREATED,
@@ -37,22 +37,22 @@ export class UsersController {
     return await this.usersService.create(createUserDto);
   }
 
-  @Get('findAllUsers')
+  @Get()
   findAll() {
     return this.usersService.findAll();
   }
-  @Get('findUser/:id')
+  @Get('/:id')
   findOne(@Param('id') id: string) {
     return this.usersService.findOne(+id);
   }
 
-  @Patch('updateUser/:id')
+  @Patch('/:id')
   async update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
     return await this.usersService.update(+id, updateUserDto);
   }
 
-  @Delete('deleteUser/:id')
-  remove(@Param('id') id: string) {
-    return this.usersService.remove(+id);
-  }
+  // @Delete('/:id')
+  // remove(@Param('id') id: string) {
+  //   return this.usersService.remove(+id);
+  // }
 }

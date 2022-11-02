@@ -10,6 +10,8 @@ RUN yarn install \
     --cache-folder /build/.yarn-cache
 
 # COPY prisma prisma
+RUN yarn prisma generate
+RUN yarn prisma migrate dev --name init
 RUN yarn seed
 
 COPY . .

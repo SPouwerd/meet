@@ -5,9 +5,6 @@
   "author": "",
   "private": true,
   "license": "UNLICENSED",
-  "prisma": {
-  "seed": "ts-node src/prisma/seed/seed.ts"
-  },
   "scripts": {
     "dev":"nest start --watch --preserveWatchOutput",
     "seed": "ts-node src/prisma/seed/seed.ts",
