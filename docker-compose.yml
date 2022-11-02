@@ -30,9 +30,9 @@ services:
       NODE_ENV: development
       DATABASE_URL: postgresql://meet:meet@database:5432/meet?schema=public&connect_timeout=300
       JWT_SECRET_KEY: cookies-and-creams
-    labels:
-      traefik.http.routers.api.rule: PathPrefix(`/api`)
-      traefik.http.services.api.loadbalancer.server.port: 3000
+    # labels:
+    #   traefik.http.routers.api.rule: PathPrefix(`/api`)
+    #   traefik.http.services.api.loadbalancer.server.port: 3000
     depends_on:
       - "database"
     volumes:
@@ -46,7 +46,7 @@ services:
     environment:
       HOST: 0.0.0.0
       PORT: 3001
-      BACKEND_URL: 'http://api:3000'
+      BACKEND_URL: 'http://localhost:3000'
     labels:
       traefik.http.routers.web.rule: PathPrefix(`/`)
       traefik.http.services.web.loadbalancer.server.port: 3001
