@@ -8,7 +8,7 @@
     <Menubar :model="items">
       <template #start>
         <NuxtLink to="/">
-        <img alt="logo" height="40" class="mr-2">
+        <img alt="MEET_APP" height="40" class="mr-2">
     </NuxtLink>   </template>
       <template #end>
 
@@ -45,12 +45,15 @@
 <style lang="css">
 body {
     background-color: var(--soft-white);
-    padding-top: 148px;
+    margin: 0px;
+}
+body > :first-child {
+    padding-top: 42px;
 }
 
-.nuxt-link-active {
-    color: var(--soft-white) !important;
-    text-decoration: none !important;
+.p-menubar .nuxt-link-active {
+    color: var(--soft-white);
+    text-decoration: none;
 }
 .p-menubar {
     background-color: var(--blue);

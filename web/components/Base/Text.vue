@@ -4,47 +4,56 @@
 </script>
 
 <template>
-    <ValidationProvider 
+  <ValidationProvider 
     v-slot="{ errors }"
-    :rules="validations"
+    :rules="validation"
+    class="validation-wrapper"
     >
         <InputText 
-            :id="idProp"
-            v-model="inputValue"
-            :type="typeProp"
+            :id="id"
+            :type="type"
+            v-model="inputValue" 
             />
-
-  <span>{{ errors[0] }}</span>
+            <div :id="id" class="description">{{ errors[0] }} </div>
   </ValidationProvider>
 </template>
 
 <script>
   export default {
     props: {
-      idProp: {
+      id: {
         type: String,
         required: true
       },
-      typeProp: {
+      type: {
         type: String,
         required: false,
         default: 'text'
       },
-      validations: {
+      validation: {
         type: String,
         default: 'required'
       },
     },
     data() {
       return {
-        v: ['teeeet'],
-        inputValue: 'test'
+        inputValue: ''
       }
     },
-    methods: {
-
-    }
   }
 </script>
+
+<style>
+.validation-wrapper {
+    position: relative;
+    font-size: small;
+}
+.description {
+    color: var(--blue-dark);
+    position: absolute;
+    top: 36px;
+    left: 8px;
+}
+</style>
 
 
