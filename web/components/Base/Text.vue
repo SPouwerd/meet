@@ -46,4 +46,13 @@ export default {
   top: 36px;
   left: 8px;
 }
+
+@media (min-width: 400px) and (max-width: 900px) {
+  .p-inputtext {
+    width: stretch;
+  }
+  .validation-wrapper {
+    width: stretch;
+  }
+}
 </style>

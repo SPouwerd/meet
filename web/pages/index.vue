@@ -17,9 +17,6 @@
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
-          <BaseForm>
-            <BaseText id="name" type="text" validation="required|test" />
-          </BaseForm>
         </section>
       </div>
       <div class="col-12 md:col-6 overflow-hidden">
