@@ -7,7 +7,7 @@ import TabPanel from 'primevue/tabpanel'
     <div class="card">
       <TabView :activeIndex="currentStep">
         <TabPanel header="Account" disabled>
-          <UserRegister />
+          <UserRegisterForm />
         </TabPanel>
         <TabPanel header="Voorkeuren" disabled>
           <UserPreferences />
@@ -31,7 +31,6 @@ export default {
     makeStep(n) {
       this.currentStep += n
       console.log(this.currentStep)
-
     },
   },
 }

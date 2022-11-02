@@ -1,4 +1,8 @@
-<script setup></script>
+<script setup>
+import { ValidationObserver } from 'vee-validate'
+import Button from 'primevue/button'
+</script>
+
 <template>
   <div class="surface-card p-4 shadow-2 border-round">
     <div class="font-medium text-3xl text-900 mb-3">Account registratie</div>
@@ -6,12 +10,8 @@
       Morbi tristique blandit turpis. In viverra ligula id nulla hendrerit
       rutrum.
     </div>
-    <ul class="list-none p-0 m-0">
-      <BaseForm
-        formName="register"
-        formButton="Registeren"
-        :sumbitHandler="formHandler"
-      >
+    <ValidationObserver v-slot="{ handleSubmit }">
+      <form @submit.prevent="handleSubmit(formHandler)">
         <li
           class="flex align-items-center py-3 px-2 border-top-1 surface-border flex-wrap"
         >
@@ -30,19 +30,23 @@
           <div class="text-800 w-6 md:w-2 font-medium">Wachtwoord:</div>
           <BaseText ref="password" type="password" validation="required" />
         </li>
-      </BaseForm>
-    </ul>
+        <Button type="submit"> Bevestig </Button>
+        <Button @click="postUser(registerData)"> post user </Button>
+        <Button @click="allUser"> get all users </Button>
+      </form>
+    </ValidationObserver>
   </div>
 </template>
+
 <script>
 export default {
-  emits: ['succes-step'],
-  data() {
+  props: {},
+  data: () => {
     return {
       registerData: {
-        username: '',
-        email: '',
-        password: '',
+        username: 'i',
+        email: 'stijn@est.nl',
+        password: 'i',
       },
     }
   },
@@ -51,10 +55,25 @@ export default {
       this.registerData.username = this.$refs.username.inputValue
       this.registerData.email = this.$refs.email.inputValue
       this.registerData.password = this.$refs.password.inputValue
-      console.log(JSON.stringify(this.registerData))
+      this.postUser(JSON.stringify(this.registerData))
+    },
+    async postUser(data) {
+      console.log(data)
+      const res = await this.$axios.post('/user', data)
+      console.log(JSON.stringify(res.data))
+      return res
+    },
+    async allUser() {
+      const res = await this.$axios.get('/user')
+      console.log(JSON.stringify(res.data))
+      return res
     },
   },
 }
 </script>
 
-<style></style>
+<style>
+.submit-button {
+  float: right;
+}
+</style>

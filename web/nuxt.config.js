@@ -35,11 +35,17 @@ export default {
     'primevue/nuxt',
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxtjs/auth-next',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: '/',
+    baseURL: process.env.BACKEND_URL || 'http://localhost:3000',
+  },
+
+  // Auth redirect to index if not loggedin global
+  router: {
+    // middleware: ['auth'],
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
