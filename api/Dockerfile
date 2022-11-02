@@ -9,10 +9,8 @@ RUN yarn install \
     --non-interactive \
     --cache-folder /build/.yarn-cache
 
-# COPY prisma prisma
-RUN yarn prisma generate
-RUN yarn prisma migrate dev --name init
-RUN yarn seed
+COPY prisma prisma
+RUN yarn generate
 
 COPY . .
 CMD yarn production
