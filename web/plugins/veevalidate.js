@@ -1,10 +1,22 @@
 import Vue from 'vue'
-import { ValidationProvider, extend } from 'vee-validate'
+import { ValidationProvider, extend, validate } from 'vee-validate'
 
 // Add a rules.
 extend('test', {
   validate: (value) => value === 'test',
   message: 'This is not the magic word',
+})
+
+extend('one-of', {
+  validate(value, values) {
+    return values.includes(value)
+  },
+  // TODO: get values from validator to send requirements
+  message: (field, values) => {
+    return `The ${JSON.stringify(values)} must be one of${console.log(
+      JSON.parse(JSON.stringify(values))
+    )}`
+  },
 })
 
 extend('required', {
@@ -38,7 +50,7 @@ extend('password', {
   validate: (value) => {
     //  eslint-disable-next-line prefer-regex-literals
     const strongRegex = new RegExp(
-      '^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})'
+      '^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{6,})'
     )
     return strongRegex.test(value)
   },
