@@ -20,7 +20,7 @@ import Button from 'primevue/button'
         </NuxtLink>
       </template>
     </Menubar>
-    <div class="surface-card p-6 shadow-8 border-round">
+    <div class="surface-card p-4 shadow-1">
       <Nuxt />
     </div>
   </div>

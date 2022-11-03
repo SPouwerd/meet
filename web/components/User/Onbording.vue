@@ -3,7 +3,7 @@ import TabView from 'primevue/tabview'
 import TabPanel from 'primevue/tabpanel'
 </script>
 <template>
-  <div class="surface-card p-4 shadow-2 border-round">
+  <div class="surface-card p-1 shadow-1 border-round">
     <div class="card">
       <TabView :activeIndex="currentStep">
         <TabPanel header="Account" disabled>

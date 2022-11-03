@@ -4,11 +4,11 @@ import Button from 'primevue/button'
 </script>
 
 <template>
-  <div class="surface-card p-4 shadow-2 border-round">
+  <div class="surface-card p-3 shadow-6 border-round">
     <div class="font-medium text-3xl text-900 mb-3">Account registratie</div>
     <div class="text-500 mb-5">
       Morbi tristique blandit turpis. In viverra ligula id nulla hendrerit
-      rutrum.
+      rutrum. {{ $auth.user }}
     </div>
     <ValidationObserver v-slot="{ handleSubmit }">
       <form @submit.prevent="handleSubmit(formHandler)">
@@ -31,8 +31,9 @@ import Button from 'primevue/button'
           <BaseText ref="password" type="password" validation="required" />
         </li>
         <Button type="submit"> Bevestig </Button>
-        <Button @click="postUser(registerData)"> post user </Button>
-        <Button @click="allUser"> get all users </Button>
+        <Button @click="allUser"> all users </Button>
+        <Button @click="postUser(registerData)"> new user </Button>
+        <Button @click="handleLogIn"> login </Button>
       </form>
     </ValidationObserver>
   </div>
@@ -44,24 +45,41 @@ export default {
   data: () => {
     return {
       registerData: {
-        username: 'i',
-        email: 'stijn@est.nl',
-        password: 'i',
+        username: '666666',
+        email: '666666@666666.nl',
+        password: '666666',
       },
     }
   },
+  computed: {},
   methods: {
     formHandler() {
       this.registerData.username = this.$refs.username.inputValue
       this.registerData.email = this.$refs.email.inputValue
       this.registerData.password = this.$refs.password.inputValue
-      this.postUser(JSON.stringify(this.registerData))
+      this.postUser(this.registerData)
     },
     async postUser(data) {
-      console.log(data)
-      const res = await this.$axios.post('/user', data)
-      console.log(JSON.stringify(res.data))
-      return res
+      try {
+        const res = await this.$axios.post('/user', data)
+        // TODO: $toast succes message to frontend
+        console.log(res.statusText)
+        // TODO: fix reseting form
+        // this.$validator.reset() // not working
+        return res
+      } catch (error) {
+        // TODO: $toast error message to frontend
+        console.log(error.response.data.message)
+      }
+    },
+    handleLogIn() {
+      this.$auth.loginWith('local', {
+        data: {
+          email: this.registerData.email,
+          password: this.registerData.password,
+        },
+      })
+      console.log(this.$auth.user)
     },
     async allUser() {
       const res = await this.$axios.get('/user')

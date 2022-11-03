@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import { ValidationProvider, extend, validate } from 'vee-validate'
+import { ValidationProvider, extend } from 'vee-validate'
 
 // Add a rules.
 extend('test', {

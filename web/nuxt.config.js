@@ -43,11 +43,26 @@ export default {
     baseURL: process.env.BACKEND_URL || 'http://localhost:3000',
   },
 
-  // Auth redirect to index if not loggedin global
-  router: {
-    // middleware: ['auth'],
+  // https://auth.nuxtjs.org/
+  auth: {
+    strategies: {
+      local: {
+        endpoints: {
+          login: { url: '/auth', method: 'post', propertName: 'access_token' },
+          // TODO: create backend route & function
+          user: { url: '/auth/user', method: 'get', propertName: 'user' },
+        },
+        user: {
+          // autoFetch: true,
+        },
+        token: {
+          property: 'access_token',
+          type: 'Bearer',
+          required: true,
+        },
+      },
+    },
   },
-
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     // https://github.com/primefaces/primevue/issues/844
